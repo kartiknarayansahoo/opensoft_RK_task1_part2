@@ -42,6 +42,7 @@ section {
   margin-bottom: -5.4em;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .navbar .container {
   display: flex;
@@ -345,9 +346,110 @@ section {
   margin-bottom: -0.4em;
 }
 
-.contact-section .container {
+.special-menu .container {
   padding: 2em;
   background-color: var(--background-color1);
+}
+.special-menu .container .content .subhead {
+  text-align: center;
+  color: var(--primary-color);
+}
+.special-menu .container .content .tagline {
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  width: 100%;
+  line-height: 1.2em;
+}
+.special-menu .container .menu-table {
+  /* Style the buttons that are used to open the tab content */
+  /* Change background color of buttons on hover */
+  /* Create an active/current tablink class */
+  /* Style the tab content */
+}
+.special-menu .container .menu-table .tab {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+}
+.special-menu .container .menu-table .tab button {
+  background-color: inherit;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  display: block;
+}
+.special-menu .container .menu-table .tab button p {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+.special-menu .container .menu-table .tab button.active {
+  color: var(--primary-color);
+}
+.special-menu .container .menu-table .tabcontent {
+  display: grid;
+  align-items: start;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+          animation: fadeEffect 1s;
+}
+.special-menu .container .menu-table .tabcontent .menu-card {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+.special-menu .container .menu-table .tabcontent .menu-card img {
+  margin: auto 0;
+  width: 70px;
+  height: 6em;
+  border-radius: 0.4em;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.special-menu .container .menu-table .tabcontent .menu-card .menu-content {
+  color: white;
+  padding: 0 1em;
+  width: 50%;
+  font-size: 0.8em;
+}
+.special-menu .container .menu-table .menu-price {
+  background-color: var(--primary-color);
+  width: 15%;
+  height: 100%;
+  border-radius: 0.2em;
+  text-align: center;
+  margin: auto 0;
+}
+.special-menu .container .menu-table .menu-price h2 {
+  display: inline-block;
+}
+
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.contact-section {
+  background-color: var(--background-color2);
+}
+.contact-section .container {
+  padding: 2em;
 }
 .contact-section .container .content .subhead {
   color: var(--primary-color);
@@ -369,7 +471,7 @@ section {
 .contact-section .container .contact-details .phone,
 .contact-section .container .contact-details .email {
   display: grid;
-  background-color: var(--background-color2);
+  background-color: var(--background-color1);
   margin: 2em 0;
   padding: 0.2em 0 1.2em 0;
   border-radius: 5em;
@@ -409,7 +511,7 @@ section {
   font-size: 1.4em;
 }
 .contact-section .container .table-reservation input[type=submit] {
-  background-color: var(--background-color2);
+  background-color: var(--background-color1);
   color: var(--primary-color);
   font-weight: bold;
   font-size: 1.3em;
@@ -456,6 +558,7 @@ section {
   font-size: 18px;
   /* Increase font size */
   transition: 0.15s;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 #myBtn:hover {
@@ -479,6 +582,10 @@ section {
 .footer .container .social-icons ul i {
   color: white;
   margin: 0em 0.6em;
+  transition: 0.1s;
+}
+.footer .container .social-icons ul i:hover {
+  color: var(--primary-color);
 }
 .footer .container .logo-name {
   display: flex;
@@ -665,6 +772,39 @@ nav .primary-nav li a:hover {
   .header .container .right-col #radio4:checked ~ .navigation-auto .auto-btn4 {
     background: var(--primary-color);
   }
+  .special-menu .container .menu-table {
+    /* Style the tab content */
+  }
+  .special-menu .container .menu-table .tabcontent .menu-card {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+  }
+  .special-menu .container .menu-table .tabcontent .menu-card img {
+    margin: auto 0;
+    width: 20%;
+    height: unset;
+    border-radius: 0.4em;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .special-menu .container .menu-table .tabcontent .menu-card .menu-content {
+    color: white;
+    padding: 0 1em;
+    width: 50%;
+    font-size: unset;
+  }
+  .special-menu .container .menu-table .menu-price {
+    background-color: var(--primary-color);
+    width: 15%;
+    height: 100%;
+    border-radius: 0.2em;
+    text-align: center;
+    margin: auto 0;
+  }
+  .special-menu .container .menu-table .menu-price h2 {
+    display: inline-block;
+  }
 }
 @media only screen and (min-width: 1180px) {
   .container {
@@ -745,6 +885,46 @@ nav .primary-nav li a:hover {
   }
   .chefs-section .container .chefs ul li {
     margin: 0 1em;
+  }
+  .special-menu .container .menu-table {
+    /* Style the tab content */
+  }
+  .special-menu .container .menu-table .tabcontent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    -moz-column-gap: 1em;
+         column-gap: 1em;
+    align-items: start;
+  }
+  .special-menu .container .menu-table .tabcontent .menu-card {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+  }
+  .special-menu .container .menu-table .tabcontent .menu-card img {
+    margin: auto 0;
+    width: 20%;
+    height: unset;
+    border-radius: 0.4em;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .special-menu .container .menu-table .tabcontent .menu-card .menu-content {
+    color: white;
+    padding: 0 1em;
+    width: 50%;
+    font-size: unset;
+  }
+  .special-menu .container .menu-table .menu-price {
+    background-color: var(--primary-color);
+    width: 15%;
+    height: 100%;
+    border-radius: 0.2em;
+    text-align: center;
+    margin: auto 0;
+  }
+  .special-menu .container .menu-table .menu-price h2 {
+    display: inline-block;
   }
   .contact-section .container {
     display: flex;

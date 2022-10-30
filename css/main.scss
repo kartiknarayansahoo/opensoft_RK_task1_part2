@@ -44,6 +44,7 @@ section {
     margin-bottom: -5.4em;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
     .container {
         display: flex;
@@ -261,6 +262,7 @@ section {
     }
 }
 
+
 .about-section {
     .container {
         padding: 2em;
@@ -441,10 +443,132 @@ section {
     }
 }
 
-.contact-section {
+.special-menu {
+
     .container {
         padding: 2em;
         background-color: var(--background-color1);
+
+
+        .content {
+            // display: block;
+
+            .subhead {
+                text-align: center;
+                color: var(--primary-color);
+            }
+
+            .tagline {
+                text-align: center;
+                font-size: 2em;
+                color: white;
+                width: 100%;
+                line-height: 1.2em;
+            }
+
+        }
+
+        .menu-table {
+
+            .tab {
+                overflow: hidden;
+                // border: 1px solid #ccc;
+                // background-color: #f1f1f1;
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+                background-color: inherit;
+                color: white;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+                display: block;
+
+                p {
+                    font-weight: bold;
+                    font-size: 1.4em;
+                }
+            }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                // background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+                // background-color: #ccc;
+                color: var(--primary-color);
+            }
+
+            /* Style the tab content */
+            .tabcontent {
+                display: grid;
+                align-items: start;
+                padding: 6px 12px;
+                // border: 1px solid #ccc;
+                animation: fadeEffect 1s;
+
+                .menu-card {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 1em;
+
+                    img {
+                        margin: auto 0;
+                        width: 70px;
+                        height: 6em;
+                        border-radius: 0.4em;
+                        object-fit: cover;
+                    }
+
+                    .menu-content {
+                        color: white;
+                        padding: 0 1em;
+                        width: 50%;
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+            .menu-price {
+                background-color: var(--primary-color);
+                width: 15%;
+                height: 100%;
+                border-radius: 0.2em;
+                text-align: center;
+                margin: auto 0;
+
+                h2 {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.contact-section {
+    background-color: var(--background-color2);
+
+    .container {
+        padding: 2em;
+        // background-color: var(--background-color1);
 
         .content {
             .subhead {
@@ -477,7 +601,7 @@ section {
             .phone,
             .email {
                 display: grid;
-                background-color: var(--background-color2);
+                background-color: var(--background-color1);
                 margin: 2em 0;
                 padding: 0.2em 0 1.2em 0;
                 border-radius: 5em;
@@ -522,7 +646,7 @@ section {
             }
 
             input[type="submit"] {
-                background-color: var(--background-color2);
+                background-color: var(--background-color1);
                 color: var(--primary-color);
                 font-weight: bold;
                 font-size: 1.3em;
@@ -574,6 +698,7 @@ section {
     font-size: 18px;
     /* Increase font size */
     transition: 0.15s;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 #myBtn:hover {
@@ -599,6 +724,11 @@ section {
                 i {
                     color: white;
                     margin: 0em 0.6em;
+                    transition: 0.1s;
+                }
+
+                i:hover {
+                    color: var(--primary-color);
                 }
             }
         }
@@ -849,6 +979,51 @@ nav {
         }
     }
 
+    .special-menu {
+        .container {
+            .menu-table {
+
+                /* Style the tab content */
+                .tabcontent {
+
+                    .menu-card {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 1em;
+
+                        img {
+                            margin: auto 0;
+                            width: 20%;
+                            height: unset;
+                            border-radius: 0.4em;
+                            object-fit: cover;
+                        }
+
+                        .menu-content {
+                            color: white;
+                            padding: 0 1em;
+                            width: 50%;
+                            font-size: unset;
+                        }
+                    }
+                }
+
+                .menu-price {
+                    background-color: var(--primary-color);
+                    width: 15%;
+                    height: 100%;
+                    border-radius: 0.2em;
+                    text-align: center;
+                    margin: auto 0;
+
+                    h2 {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 @media only screen and (min-width:1180px) {
@@ -970,6 +1145,55 @@ nav {
                     li {
                         margin: 0 1em;
 
+                    }
+                }
+            }
+        }
+    }
+
+    .special-menu {
+        .container {
+            .menu-table {
+
+                /* Style the tab content */
+                .tabcontent {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    column-gap: 1em;
+                    align-items: start;
+
+                    .menu-card {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 1em;
+
+                        img {
+                            margin: auto 0;
+                            width: 20%;
+                            height: unset;
+                            border-radius: 0.4em;
+                            object-fit: cover;
+                        }
+
+                        .menu-content {
+                            color: white;
+                            padding: 0 1em;
+                            width: 50%;
+                            font-size: unset;
+                        }
+                    }
+                }
+
+                .menu-price {
+                    background-color: var(--primary-color);
+                    width: 15%;
+                    height: 100%;
+                    border-radius: 0.2em;
+                    text-align: center;
+                    margin: auto 0;
+
+                    h2 {
+                        display: inline-block;
                     }
                 }
             }
