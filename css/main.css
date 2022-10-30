@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Poppins:wght@400;700&display=swap");
 :root {
   --primary-color: #CFFF8D;
   --background-color2: #5c8369;
@@ -37,9 +37,11 @@ section {
 }
 
 .navbar {
-  background-color: var(--background-color1);
+  background-color: rgba(66, 95, 87, 0.8);
   padding: 0.4em 1em 0;
   margin-bottom: -5.4em;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 .navbar .container {
   display: flex;
@@ -56,10 +58,11 @@ section {
   color: var(--primary-color);
 }
 .navbar .container .logo p {
-  font-size: 1.4em;
+  font-family: "Alex Brush", cursive;
+  font-size: 1.8em;
   font-weight: lighter;
   margin: 0;
-  margin-top: -0.6em;
+  margin-top: -0.4em;
   color: white;
 }
 .navbar .container i {
@@ -73,6 +76,7 @@ section {
 }
 .navbar nav ul {
   padding-bottom: 1em;
+  margin-right: 1em;
 }
 .navbar nav ul li {
   font-weight: 400;
@@ -98,13 +102,11 @@ section {
   color: var(--primary-color);
 }
 .header .container .left-col p {
-  margin-top: -2.2em;
+  font-family: "Alex Brush", cursive;
+  margin-top: -1.2em;
   margin-bottom: 2.2em;
-  text-transform: uppercase;
   color: white;
-  font-size: 1.4em;
-  font-weight: bold;
-  letter-spacing: 0.2em;
+  font-size: 2.6em;
 }
 .header .container .left-col .header-btn {
   text-decoration: none;
@@ -114,6 +116,7 @@ section {
   background-color: white;
   padding: 0.8em;
   border-radius: 5em;
+  transition: 0.15s;
 }
 .header .container .left-col .header-btn:hover {
   background-color: var(--background-color1);
@@ -121,59 +124,91 @@ section {
 }
 .header .container .right-col {
   width: 100%;
+  /*css for manual slide navigation*/
+  /*css for automatic navigation*/
 }
-
-.slider {
-  margin: 2em auto;
+.header .container .right-col .slider {
   width: 100%;
-  max-width: 800px;
-  height: 350px;
-  position: relative;
+  height: 100%;
   overflow: hidden;
-  /* <===  */
-  border-radius: 15px;
 }
-
-.slide {
-  width: 100%;
-  max-width: 800px;
-  height: 350px;
-  position: absolute;
-  transition: all 0.5s;
+.header .container .right-col .slides {
+  width: 500%;
+  height: 500px;
+  display: flex;
 }
-
-.slide img {
+.header .container .right-col .slides input {
+  display: none;
+}
+.header .container .right-col .slide-individual {
+  width: 20%;
+  transition: 0.3s;
+}
+.header .container .right-col .slide-individual img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-
-.btn {
+.header .container .right-col .navigation-manual {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  border: none;
-  border-radius: 50%;
-  z-index: 10px;
+  width: 100%;
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+}
+.header .container .right-col .manual-btn {
+  border: 2px solid var(--background-color2);
+  padding: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  background-color: #fff;
-  font-size: 18px;
+  transition: 1s;
 }
-
-.btn:active {
-  transform: scale(1.1);
+.header .container .right-col .manual-btn:not(:last-child) {
+  margin-right: 40px;
 }
-
-.btn-prev {
-  top: 45%;
-  left: 2%;
+.header .container .right-col .manual-btn:hover {
+  background: var(--background-color2);
 }
-
-.btn-next {
-  top: 45%;
-  right: 2%;
+.header .container .right-col #radio1:checked ~ .first {
+  margin-left: 0;
+}
+.header .container .right-col #radio2:checked ~ .first {
+  margin-left: -20%;
+}
+.header .container .right-col #radio3:checked ~ .first {
+  margin-left: -40%;
+}
+.header .container .right-col #radio4:checked ~ .first {
+  margin-left: -60%;
+}
+.header .container .right-col .navigation-auto {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 460px;
+}
+.header .container .right-col .navigation-auto div {
+  border: 2px solid var(--background-color2);
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+.header .container .right-col .navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+.header .container .right-col #radio1:checked ~ .navigation-auto .auto-btn1 {
+  background: var(--primary-color);
+}
+.header .container .right-col #radio2:checked ~ .navigation-auto .auto-btn2 {
+  background: var(--primary-color);
+}
+.header .container .right-col #radio3:checked ~ .navigation-auto .auto-btn3 {
+  background: var(--primary-color);
+}
+.header .container .right-col #radio4:checked ~ .navigation-auto .auto-btn4 {
+  background: var(--primary-color);
 }
 
 .about-section .container {
@@ -266,6 +301,7 @@ section {
 .menu-section .container .menu-items ul li a {
   text-decoration: none;
   color: var(--secondary-color);
+  transition: 0.15s;
 }
 .menu-section .container .menu-items ul li a:hover {
   color: rgba(168, 232, 144, 0.7);
@@ -384,6 +420,7 @@ section {
   padding: 0.8em 2em;
   width: unset;
   cursor: pointer;
+  transition: 0.3s;
 }
 .contact-section .container .table-reservation input[type=submit]:hover {
   background-color: white;
@@ -418,6 +455,7 @@ section {
   /* Rounded corners */
   font-size: 18px;
   /* Increase font size */
+  transition: 0.15s;
 }
 
 #myBtn:hover {
@@ -478,6 +516,7 @@ nav {
 }
 nav .mobile-menu-exit {
   padding-left: 2em;
+  margin-right: 3em;
 }
 nav .primary-nav {
   text-align: right;
@@ -488,6 +527,7 @@ nav .primary-nav li a {
   text-decoration: none;
   font-size: 1.6em;
   color: white;
+  transition: 0.15s;
 }
 nav .primary-nav li a:hover {
   color: var(--primary-color);
@@ -499,7 +539,7 @@ nav .primary-nav li a:hover {
   cursor: pointer;
 }
 
-@media only screen and (min-width: 835px) {
+@media only screen and (min-width: 800px) {
   .navbar .container nav {
     display: flex;
     padding-right: 1.2em;
@@ -542,6 +582,88 @@ nav .primary-nav li a:hover {
   }
   .right-col {
     padding-bottom: 2em;
+  }
+  .header .container .right-col {
+    /*css for manual slide navigation*/
+    /*css for automatic navigation*/
+  }
+  .header .container .right-col .slider {
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .header .container .right-col .slides {
+    width: 500%;
+    height: 500px;
+    display: flex;
+  }
+  .header .container .right-col .slide-individual img {
+    width: 90%;
+    max-width: 800px;
+    height: 500px;
+    border-radius: 1em;
+  }
+  .header .container .right-col .navigation-manual {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+  }
+  .header .container .right-col .manual-btn {
+    border: 2px solid var(--background-color2);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .header .container .right-col .manual-btn:not(:last-child) {
+    margin-right: 40px;
+  }
+  .header .container .right-col .manual-btn:hover {
+    background: var(--primary-color);
+  }
+  .header .container .right-col #radio1:checked ~ .first {
+    margin-left: 0;
+  }
+  .header .container .right-col #radio2:checked ~ .first {
+    margin-left: -20%;
+  }
+  .header .container .right-col #radio3:checked ~ .first {
+    margin-left: -40%;
+  }
+  .header .container .right-col #radio4:checked ~ .first {
+    margin-left: -60%;
+  }
+  .header .container .right-col .navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+  }
+  .header .container .right-col .navigation-auto div {
+    border: 2px solid var(--background-color2);
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+  }
+  .header .container .right-col .navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+  }
+  .header .container .right-col #radio1:checked ~ .navigation-auto .auto-btn1 {
+    background: var(--primary-color);
+  }
+  .header .container .right-col #radio2:checked ~ .navigation-auto .auto-btn2 {
+    background: var(--primary-color);
+  }
+  .header .container .right-col #radio3:checked ~ .navigation-auto .auto-btn3 {
+    background: var(--primary-color);
+  }
+  .header .container .right-col #radio4:checked ~ .navigation-auto .auto-btn4 {
+    background: var(--primary-color);
   }
 }
 @media only screen and (min-width: 1180px) {

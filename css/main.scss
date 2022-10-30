@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Poppins:wght@400;700&display=swap');
 
 :root {
     --primary-color: #CFFF8D;
@@ -39,9 +39,11 @@ section {
 
 .navbar {
 
-    background-color: var(--background-color1);
+    background-color: rgba($color: #425F57, $alpha: 0.8);
     padding: 0.4em 1em 0;
     margin-bottom: -5.4em;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
 
     .container {
         display: flex;
@@ -62,10 +64,11 @@ section {
             }
 
             p {
-                font-size: 1.4em;
+                font-family: 'Alex Brush', cursive;
+                font-size: 1.8em;
                 font-weight: lighter;
                 margin: 0;
-                margin-top: -0.6em;
+                margin-top: -0.4em;
                 color: white;
             }
         }
@@ -85,6 +88,7 @@ section {
 
         ul {
             padding-bottom: 1em;
+            margin-right: 1em;
 
             li {
                 font-weight: 400;
@@ -115,13 +119,14 @@ section {
             }
 
             p {
-                margin-top: -2.2em;
+                font-family: 'Alex Brush', cursive;
+                margin-top: -1.2em;
                 margin-bottom: 2.2em;
-                text-transform: uppercase;
+                // text-transform: uppercase;
                 color: white;
-                font-size: 1.4em;
-                font-weight: bold;
-                letter-spacing: 0.2em;
+                font-size: 2.6em;
+                // font-weight: bold;
+                // letter-spacing: 0.2em;
             }
 
             .header-btn {
@@ -133,6 +138,7 @@ section {
                 background-color: white;
                 padding: 0.8em;
                 border-radius: 5em;
+                transition: 0.15s;
 
                 &:hover {
                     background-color: var(--background-color1);
@@ -144,60 +150,115 @@ section {
         .right-col {
             // position: static;
             width: 100%;
+
+            .slider {
+                width: 100%;
+                height: 100%;
+                // border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .slides {
+                width: 500%;
+                height: 500px;
+                display: flex;
+            }
+
+            .slides input {
+                display: none;
+            }
+
+            .slide-individual {
+                width: 20%;
+                transition: 0.3s;
+            }
+
+            .slide-individual img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /*css for manual slide navigation*/
+
+            .navigation-manual {
+                position: absolute;
+                width: 100%;
+                margin-top: -40px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .manual-btn {
+                border: 2px solid var(--background-color2);
+                padding: 5px;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: 1s;
+            }
+
+            .manual-btn:not(:last-child) {
+                margin-right: 40px;
+            }
+
+            .manual-btn:hover {
+                background: var(--background-color2);
+            }
+
+            #radio1:checked~.first {
+                margin-left: 0;
+            }
+
+            #radio2:checked~.first {
+                margin-left: -20%;
+            }
+
+            #radio3:checked~.first {
+                margin-left: -40%;
+            }
+
+            #radio4:checked~.first {
+                margin-left: -60%;
+            }
+
+            /*css for automatic navigation*/
+
+            .navigation-auto {
+                position: absolute;
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                margin-top: 460px;
+            }
+
+            .navigation-auto div {
+                border: 2px solid var(--background-color2);
+                padding: 5px;
+                border-radius: 10px;
+                transition: 1s;
+            }
+
+            .navigation-auto div:not(:last-child) {
+                margin-right: 40px;
+            }
+
+            #radio1:checked~.navigation-auto .auto-btn1 {
+                background: var(--primary-color);
+            }
+
+            #radio2:checked~.navigation-auto .auto-btn2 {
+                background: var(--primary-color);
+            }
+
+            #radio3:checked~.navigation-auto .auto-btn3 {
+                background: var(--primary-color);
+            }
+
+            #radio4:checked~.navigation-auto .auto-btn4 {
+                background: var(--primary-color);
+            }
         }
     }
-}
-
-.slider {
-    margin: 2em auto;
-    width: 100%;
-    max-width: 800px;
-    height: 350px;
-    position: relative;
-    overflow: hidden;
-    /* <===  */
-    border-radius: 15px;
-}
-
-.slide {
-    width: 100%;
-    max-width: 800px;
-    height: 350px;
-    position: absolute;
-    transition: all 0.5s;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.btn {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-    border: none;
-    border-radius: 50%;
-    z-index: 10px;
-    cursor: pointer;
-    background-color: #fff;
-    font-size: 18px;
-}
-
-.btn:active {
-    transform: scale(1.1);
-}
-
-.btn-prev {
-    top: 45%;
-    left: 2%;
-}
-
-.btn-next {
-    top: 45%;
-    right: 2%;
 }
 
 .about-section {
@@ -315,6 +376,7 @@ section {
                     a {
                         text-decoration: none;
                         color: var(--secondary-color);
+                        transition: 0.15s;
 
                         &:hover {
                             color: rgba($color: #A8E890, $alpha: 0.7);
@@ -471,6 +533,7 @@ section {
                 padding: .8em 2em;
                 width: unset;
                 cursor: pointer;
+                transition: 0.3s;
 
                 &:hover {
                     background-color: white;
@@ -510,6 +573,7 @@ section {
     /* Rounded corners */
     font-size: 18px;
     /* Increase font size */
+    transition: 0.15s;
 }
 
 #myBtn:hover {
@@ -581,6 +645,7 @@ nav {
 
     .mobile-menu-exit {
         padding-left: 2em;
+        margin-right: 3em;
     }
 
     .primary-nav {
@@ -593,6 +658,7 @@ nav {
                 text-decoration: none;
                 font-size: 1.6em;
                 color: white;
+                transition: 0.15s;
 
                 &:hover {
                     color: var(--primary-color);
@@ -608,7 +674,7 @@ nav {
     cursor: pointer;
 }
 
-@media only screen and (min-width:835px) {
+@media only screen and (min-width:800px) {
 
     .navbar {
 
@@ -666,6 +732,121 @@ nav {
 
     .right-col {
         padding-bottom: 2em;
+    }
+
+    .header {
+        .container {
+            .right-col {
+                .slider {
+                    width: 800px;
+                    height: 500px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    margin: 0 auto;
+                }
+
+                .slides {
+                    width: 500%;
+                    height: 500px;
+                    display: flex;
+                }
+
+                // .slides input {
+                //     display: none;
+                // }
+
+                // .slide {
+                //     width: 20%;
+                //     transition: 2s;
+                // }
+
+                .slide-individual img {
+                    width: 90%;
+                    max-width: 800px;
+                    height: 500px;
+                    border-radius: 1em;
+                }
+
+                /*css for manual slide navigation*/
+
+                .navigation-manual {
+                    position: absolute;
+                    width: 800px;
+                    margin-top: -40px;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .manual-btn {
+                    border: 2px solid var(--background-color2);
+                    padding: 5px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                }
+
+                .manual-btn:not(:last-child) {
+                    margin-right: 40px;
+                }
+
+                .manual-btn:hover {
+                    background: var(--primary-color);
+                }
+
+                #radio1:checked~.first {
+                    margin-left: 0;
+                }
+
+                #radio2:checked~.first {
+                    margin-left: -20%;
+                }
+
+                #radio3:checked~.first {
+                    margin-left: -40%;
+                }
+
+                #radio4:checked~.first {
+                    margin-left: -60%;
+                }
+
+                /*css for automatic navigation*/
+
+                .navigation-auto {
+                    position: absolute;
+                    display: flex;
+                    width: 800px;
+                    justify-content: center;
+                    margin-top: 460px;
+                }
+
+                .navigation-auto div {
+                    border: 2px solid var(--background-color2);
+                    padding: 5px;
+                    border-radius: 10px;
+                    transition: 1s;
+                }
+
+                .navigation-auto div:not(:last-child) {
+                    margin-right: 40px;
+                }
+
+                #radio1:checked~.navigation-auto .auto-btn1 {
+                    background: var(--primary-color);
+                }
+
+                #radio2:checked~.navigation-auto .auto-btn2 {
+                    background: var(--primary-color);
+                }
+
+                #radio3:checked~.navigation-auto .auto-btn3 {
+                    background: var(--primary-color);
+                }
+
+                #radio4:checked~.navigation-auto .auto-btn4 {
+                    background: var(--primary-color);
+                }
+            }
+        }
     }
 
 }
